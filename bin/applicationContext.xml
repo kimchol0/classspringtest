@@ -36,6 +36,7 @@
 		<property name="name" value="tom"></property>
 		<property name="age" value="24"></property>
 		<property name="car" ref="car2"></property>
+		<property name="car.maxSpeed" value="230"></property>
 	</bean>
 	
 </beans>
