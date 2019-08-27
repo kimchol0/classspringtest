@@ -24,12 +24,6 @@
 		<property name="name" value="zhangsan"></property>
 	</bean>
 	
-	<bean id="car" class="org.spring.bean.Car">
-		<constructor-arg value="Audi"></constructor-arg>
-		<constructor-arg value="shanghai"></constructor-arg>
-		<constructor-arg value="200" type="int"></constructor-arg>
-	</bean>
-	
 	<bean id="car2" class="org.spring.bean.Car">
 		<constructor-arg type="java.lang.String">
 			<value>Audi</value>
@@ -38,13 +32,6 @@
 			<value><![CDATA[<SHANGHAI>]]></value>
 		</constructor-arg>
 		<constructor-arg value="300000" type="double"></constructor-arg>
-	</bean>
-	
-	<bean id="person" class="org.spring.bean.Person">
-		<property name="name" value="tom"></property>
-		<property name="age" value="24"></property>
-		<property name="car" ref="car2"></property>
-		<property name="car.maxSpeed" value="230"></property>
 	</bean>
 	
 	<bean id="person5" class="org.spring.bean.Person2">
@@ -66,11 +53,25 @@
 	</bean>
 	
 	<util:list id="cars">
-		<ref bean="car"></ref>
 		<ref bean="car2"></ref>
 	</util:list>
 	
 	<bean id="person7" class="org.spring.bean.Person2" p:age="30" p:name="zhangsan" p:car-ref="cars">
 	</bean>
 	
+	<bean id="address" class="org.spring.bean.Address" p:city="AA" p:street="BB"></bean>
+	<bean id="car" class="org.spring.bean.Car" p:brand="CC" p:price="30000"></bean>
+	<bean id="car22" class="org.spring.bean.Car" p:brand="CC1" p:price="130000"></bean>
+	
+	<!-- 
+		可以使用autowire属性指定自动装配的方式
+		byName根据bean的名字和当前bean的setter风格的属性名进行自动装配，若有匹配的，则进行自动装配。
+		byType根据bean的类型和当前的bean的属性的类型进行自动装配，若IOC容器中有1个以上的类型匹配的bean，会抛出异常
+		org.springframework.beans.factory.NoUniqueBeanDefinitionException
+	 -->
+	 
+	 <bean id="person" class="org.spring.bean.Person" 
+		p:name="tom" autowire="byName"></bean>
+		
+		
 </beans>

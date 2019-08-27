@@ -29,6 +29,9 @@ public class Test {
 		
 		Person2 p3 = (Person2)ctx.getBean("person7");
 		System.out.println(p3.toString());;
+		System.out.println("----------");
+		Person person = (Person) ctx.getBean("person");
+		System.out.println(person);
 		
 	}
 	
