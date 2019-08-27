@@ -15,6 +15,9 @@ public class Test {
 		HelloWorld h = (HelloWorld) ctx.getBean("helloWorld");
 		h.hello();
 		
+		System.out.println("hw:"+hw);
+		System.out.println("h:"+h);
+		
 	}
 	
 	
