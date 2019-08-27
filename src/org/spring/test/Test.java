@@ -2,6 +2,7 @@ package org.spring.test;
 
 import org.spring.bean.Car;
 import org.spring.bean.Person;
+import org.spring.bean.Person2;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -18,6 +19,10 @@ public class Test {
 		
 		Person p = (Person) ctx.getBean("person");
 		System.out.println(p.toString());;
+		
+		Person2 p2 = (Person2)ctx.getBean("person5");
+		System.out.println(p2.toString());;
+		
 	}
 	
 }

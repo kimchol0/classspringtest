@@ -39,4 +39,15 @@
 		<property name="car.maxSpeed" value="230"></property>
 	</bean>
 	
+	<bean id="person5" class="org.spring.bean.Person2">
+		<property name="name" value="tom"></property>
+		<property name="age" value="24"></property>
+		<property name="car">
+			<list>
+				<ref bean="car"></ref>
+				<ref bean="car2"></ref>
+			</list>
+		</property>
+	</bean>
+	
 </beans>
