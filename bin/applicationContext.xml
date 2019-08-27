@@ -70,4 +70,7 @@
 		<ref bean="car2"></ref>
 	</util:list>
 	
+	<bean id="person7" class="org.spring.bean.Person2" p:age="30" p:name="zhangsan" p:car-ref="cars">
+	</bean>
+	
 </beans>
