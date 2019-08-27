@@ -71,4 +71,9 @@
 		<property name="jdbcUrl" value="${jdbcUrl}"></property>
 	 </bean>
 	
+	<context:component-scan base-package="org.spring.annotation" 
+		resource-pattern="**/*.class" >
+	</context:component-scan>
+	
+	
 </beans>
