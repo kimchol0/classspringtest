@@ -12,6 +12,8 @@ public class Test {
 		Car car = (Car) ctx.getBean("car");
 		System.out.println(car.toString());
 		
+		Car car2 = (Car) ctx.getBean("car2");
+		System.out.println(car2.toString());
 	}
 	
 }

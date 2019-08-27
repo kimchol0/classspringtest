@@ -22,4 +22,10 @@
 		<constructor-arg value="200" type="int"></constructor-arg>
 	</bean>
 	
+	<bean id="car2" class="org.spring.bean.Car">
+		<constructor-arg value="Audi" type="java.lang.String"></constructor-arg>
+		<constructor-arg value="shanghai" type="java.lang.String"></constructor-arg>
+		<constructor-arg value="300000" type="double"></constructor-arg>
+	</bean>
+	
 </beans>
