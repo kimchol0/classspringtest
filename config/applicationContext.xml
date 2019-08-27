@@ -41,17 +41,6 @@
 		</property>
 	</bean>
 	
-	<bean id="dataSource" class="org.spring.bean.DataSource">
-		<property name="properties">
-			<props>
-				<prop key="user">root</prop>
-				<prop key="password">password</prop>
-				<prop key="jdbcurl">jdbcurl</prop>
-				<prop key="driverClass">driverClass</prop>
-			</props>
-		</property>
-	</bean>
-	
 	<util:list id="cars">
 		<ref bean="car2"></ref>
 	</util:list>
@@ -73,5 +62,13 @@
 	 <bean id="person" class="org.spring.bean.Person" 
 		p:name="tom" autowire="byName"></bean>
 		
+	 <context:property-placeholder location="classpath:db.properties"/>
 		
+	 <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="user" value="${user}"></property>
+		<property name="password" value="${password}"></property>
+		<property name="driverClass" value="${driverClass}"></property>
+		<property name="jdbcUrl" value="${jdbcUrl}"></property>
+	 </bean>
+	
 </beans>
