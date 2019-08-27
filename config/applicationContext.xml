@@ -23,8 +23,12 @@
 	</bean>
 	
 	<bean id="car2" class="org.spring.bean.Car">
-		<constructor-arg value="Audi" type="java.lang.String"></constructor-arg>
-		<constructor-arg value="shanghai" type="java.lang.String"></constructor-arg>
+		<constructor-arg type="java.lang.String">
+			<value>Audi</value>
+		</constructor-arg>
+		<constructor-arg type="java.lang.String">
+			<value><![CDATA[<SHANGHAI>]]></value>
+		</constructor-arg>
 		<constructor-arg value="300000" type="double"></constructor-arg>
 	</bean>
 	
