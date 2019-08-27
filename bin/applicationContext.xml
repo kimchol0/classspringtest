@@ -16,4 +16,10 @@
 		<property name="name" value="zhangsan"></property>
 	</bean>
 	
-	</beans>
+	<bean id="car" class="org.spring.bean.Car">
+		<constructor-arg value="Audi"></constructor-arg>
+		<constructor-arg value="shanghai"></constructor-arg>
+		<constructor-arg value="200" type="int"></constructor-arg>
+	</bean>
+	
+</beans>
