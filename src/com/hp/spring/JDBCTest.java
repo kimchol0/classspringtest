@@ -71,4 +71,10 @@ public class JDBCTest {
 		System.out.println(employees);
 		
 	}
+	
+	@Test
+	public void testUpdate() {
+		String sql = "update employees set last_name = ? where id= ? ";
+		jdbcTemplate.update(sql, "wangwu",1);
+	}
 }
