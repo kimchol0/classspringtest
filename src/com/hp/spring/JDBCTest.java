@@ -77,4 +77,17 @@ public class JDBCTest {
 		String sql = "update employees set last_name = ? where id= ? ";
 		jdbcTemplate.update(sql, "wangwu",1);
 	}
+	
+	@Test
+	public void testBatchUpdate() {
+		
+		String sql = "insert into employees(last_name,email,dept_id)values (?,?,?) ";
+		List<Object[]> batchargs = new ArrayList<Object[]>();
+		batchargs.add(new Object[] {"tom","tom@gmail.com",1});
+		batchargs.add(new Object[] {"jack","jack@gmail.com",2});
+		
+		jdbcTemplate.batchUpdate(sql,batchargs);
+		
+	}
+	
 }
