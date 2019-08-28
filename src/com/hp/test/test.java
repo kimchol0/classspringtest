@@ -15,6 +15,9 @@ public class test {
 		int result = calculator.add(5, 8);
 		System.out.println("result:"+result);
 		
+		int result1 = calculator.div(10, 5);
+		System.out.println("result1:"+result1);
+		
 	}
 	
 }
