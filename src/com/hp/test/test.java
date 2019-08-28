@@ -6,6 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class test {
 
 	public static void main(String args[]) {
+		
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("application-aop.xml");
 		
 		ArithmeticCalculator calculator = (ArithmeticCalculator)ctx.getBean("calculator");
@@ -15,9 +16,5 @@ public class test {
 		int result = calculator.add(5, 8);
 		System.out.println("result:"+result);
 		
-		int result1 = calculator.div(10, 0);
-		System.out.println("result1:"+result1);
-		
 	}
-	
 }

@@ -8,12 +8,7 @@ import org.aspectj.lang.annotation.Before;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-@Order(1)
-@Aspect
-@Component
 public class ValidationAspect {
-	
-	@Before("execution(public int com.hp.test.ArithmeticCalculator.*(int,int))")
 	
 	public void validateArgs(JoinPoint joinPoint) {
 		
