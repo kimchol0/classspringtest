@@ -5,6 +5,7 @@ import java.util.Arrays;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
@@ -38,6 +39,15 @@ public class LoggingAspect {
 		
 		System.out.println("返回通知---the method:"+methodName+" end with result:"+result);
 	
+	}
+	
+	@AfterThrowing(pointcut="execution(* com.hp.test.*.*(..))",throwing="e")
+	public void afterThrowing(JoinPoint joinPoint,Exception e) {
+		
+		String methodName = joinPoint.getSignature().getName();
+		
+		System.out.println("异常通知---the method:"+methodName+" occurs exception:"+ e);
+		
 	}
 	
 }
