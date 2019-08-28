@@ -3,9 +3,11 @@ package com.hp.test;
 import java.util.Arrays;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
@@ -50,4 +52,25 @@ public class LoggingAspect {
 		
 	}
 	
+	@Around("execution(* com.hp.test.*.*(..))")
+	public Object aroundMethod(ProceedingJoinPoint pjd) {
+		Object result = null;
+		String methodName = pjd.getSignature().getName();
+		
+		try {
+			System.out.println("*前置通知---method begin....."+methodName+",args:"+Arrays.asList(pjd.getArgs()));
+			
+			result = pjd.proceed();
+			
+			System.out.println("*返回通知---the method:"+methodName+" end with result:"+result);
+		} catch (Throwable e) {
+			
+			System.out.println("*异常通知---the method:"+methodName+" occurs exception:"+ e);
+//			throw new RuntimeException(e);
+		}
+		
+		System.out.println("*后置通知---method:"+methodName+" ends.");
+		
+		return result;
+	}
 }
